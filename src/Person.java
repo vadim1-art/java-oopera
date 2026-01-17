@@ -1,19 +1,12 @@
 import java.util.Objects;
 
-class Person {
+public class Person {
     protected String name;
     protected String surname;
-    protected Gender gender;
 
-    public enum Gender {
-        MALE,
-        FEMALE
-    }
-
-    public Person(String name, String surname, Gender gender) {
+    public Person(String name, String surname) {
         this.name = name;
         this.surname = surname;
-        this.gender = gender;
     }
 
     @Override
@@ -27,16 +20,14 @@ class Person {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return Objects.equals(name, person.name) &&
-                Objects.equals(surname, person.surname) &&
-                gender == person.gender;
+                Objects.equals(surname, person.surname);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, surname, gender);
+    public String getName() {
+        return name;
     }
-
-    public String getName() { return name; }
-    public String getSurname() { return surname; }
-    public Gender getGender() { return gender; }
+    public String getSurname() {
+        return surname;
+    }
 }
+
