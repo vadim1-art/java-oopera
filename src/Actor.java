@@ -1,8 +1,8 @@
-class Actor extends Person {
+public class Actor extends Person {
     private int height;
 
     public Actor(String name, String surname, Gender gender, int height) {
-        super(name, surname, gender);
+        super(name, surname);
         this.height = height;
     }
 
@@ -20,5 +20,7 @@ class Actor extends Person {
         return height == actor.height;
     }
 
-    public int getHeight() { return height; }
+    public int getHeight() {
+        return height;
+    }
 }
