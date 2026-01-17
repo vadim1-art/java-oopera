@@ -38,19 +38,49 @@ public class Show {
     }
 
     public void replaceActor(Actor newActor, String surnameToReplace) {
+        int count = 0;
+        int firstIndex = -1;
+
         for (int i = 0; i < listOfActors.size(); i++) {
             Actor actor = listOfActors.get(i);
             if (actor.getSurname().equals(surnameToReplace)) {
-                listOfActors.set(i, newActor);
-                System.out.println("Актёр " + actor.getSurname() + " заменён на " + newActor.getSurname());
-                return;
+                count++;
+                if (firstIndex == -1) {
+                    firstIndex = i;
+                }
             }
         }
-        System.out.println("Предупреждение: актёр с фамилией '" + surnameToReplace + "' не найден!");
+
+        if (count == 0) {
+            System.out.println("Предупреждение: актёр с фамилией '" + surnameToReplace + "' не найден!");
+        } else if (count == 1) {
+            Actor oldActor = listOfActors.get(firstIndex);
+            listOfActors.set(firstIndex, newActor);
+            System.out.println("Актёр " + oldActor.getName() + " " + oldActor.getSurname() +
+                    " заменён на " + newActor.getName() + " " + newActor.getSurname());
+        } else {
+            System.out.println("Ошибка: найдено " + count + " актёров с фамилией '" + surnameToReplace + "'!");
+            System.out.println("Для замены необходимо указать полное имя актёра.");
+            System.out.println();
+            System.out.println("Найденные актёры:");
+            for (Actor actor : listOfActors) {
+                if (actor.getSurname().equals(surnameToReplace)) {
+                    System.out.println("- " + actor.getName() + " " + actor.getSurname());
+                }
+            }
+        }
     }
 
-    public String getTitle() { return title; }
-    public int getDuration() { return duration; }
-    public Director getDirector() { return director; }
-    public List<Actor> getListOfActors() { return listOfActors; }
+    public String getTitle() {
+        return title;
+    }
+    public int getDuration() {
+        return duration;
+    }
+    public Director getDirector() {
+        return director;
+    }
+    public List<Actor> getListOfActors() {
+        return listOfActors;
+    }
 }
