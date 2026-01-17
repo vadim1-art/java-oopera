@@ -1,15 +1,15 @@
 public class Theatre {
     public static void main(String[] args) {
 
-        Actor actor1 = new Actor("Иван", "Петров", Person.Gender.MALE, 180);
-        Actor actor2 = new Actor("Анна", "Сидорова", Person.Gender.FEMALE, 165);
-        Actor actor3 = new Actor("Сергей", "Иванов", Person.Gender.MALE, 175);
+        Actor actor1 = new Actor("Иван", "Петров", Gender.MALE, 180);
+        Actor actor2 = new Actor("Анна", "Сидорова", Gender.FEMALE, 165);
+        Actor actor3 = new Actor("Сергей", "Иванов", Gender.MALE, 175);
 
-        Director director1 = new Director("Олег", "Табаков", Person.Gender.MALE, 15);
-        Director director2 = new Director("Мария", "Захарова", Person.Gender.FEMALE, 8);
+        Director director1 = new Director("Олег", "Табаков", Gender.MALE, 15);
+        Director director2 = new Director("Мария", "Захарова", Gender.FEMALE, 8);
 
-        String musicAuthor = "Пётр Чайковский";
-        String choreographer = "Мариус Петипа";
+        Person musicAuthor = new Person("Пётр", "Чайковский");
+        Person choreographer = new Person("Мариус", "Петипа");
 
         Show regularShow = new Show("Вишнёвый сад", 120, director1);
 
@@ -51,7 +51,7 @@ public class Theatre {
         System.out.println();
 
         System.out.println("Заменяем актёра в опере:");
-        Actor newActor = new Actor("Александр", "Новый", Person.Gender.MALE, 182);
+        Actor newActor = new Actor("Александр", "Новый", Gender.MALE, 182);
         opera.replaceActor(newActor, "Иванов");
 
         System.out.println("\nОбновлённый список актёров в опере:");
