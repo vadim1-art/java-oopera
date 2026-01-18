@@ -23,6 +23,12 @@ public class Person {
                 Objects.equals(surname, person.surname);
     }
 
+     @Override
+    public int hashCode() {
+        return Objects.hash(name, surname)
+    }
+
+
     public String getName() {
         return name;
     }
@@ -30,4 +36,5 @@ public class Person {
         return surname;
     }
 }
+
 
